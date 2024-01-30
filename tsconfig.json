@@ -15,4 +15,4 @@
 // npm init -y
 // npm install
 // nps install typescript --save-dev
-// tsc -- watch permet de lancer la compilation automatique
+//  npx tsc -- watch permet de lancer la compilation automatique

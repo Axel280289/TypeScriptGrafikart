@@ -1,12 +1,4 @@
 "use strict";
-function identity(arg) {
-    return arg;
-}
-const aa = identity(3);
-function first(arg) {
-    return arg[0];
-}
-const cc = first(["aze", "bze", "cze"]);
 /*
 const a: string = "Hello world"  // Déclarer une chaine de caractere
 const n: number = 15 // déclarer un nombre
@@ -50,14 +42,52 @@ function printID(id) {
 }
 function example(a, b) {
     if (a === b) {
-        a;
+        a; // Type scrit sait automatiquement que a sera un string ou boolean
     }
+}
+function isDate(a) {
+    return a instanceof Date; // on defini que a est une date
 }
 function exampleB(a) {
     if (isDate(a)) {
         a;
     }
 }
-function isDate(a) {
-    return a instanceof Date;
+const user = { firstname: "john", lastname: "doe" };
+const date = 'string';
+const utilisateur = {
+    firstname: "John",
+    lastname: "Doe",
+    age: 32
+};
+// géneric
+function identity(arg) {
+    return arg;
 }
+const aa = identity(3); // precise le type que l'on va recevoir ici number, TS comprends juste si l'on met 3
+const cc = first(["aze", "bze", "cze"]);
+const bb = ["aze", 1, "cze"]; // ici c'est un type géneric
+function first(arg) {
+    return arg[0];
+}
+const compteurs = document.querySelector('#compteur'); // l'on defini que compteur sera un HtmlButtonElement
+function consoleSize(arg) {
+    console.log(arg.length);
+    return arg;
+}
+const abb = consoleSize(["1", 2, 3]);
+// readonly permet de ne pas modifier une propriété  en entrée
+function reverse(arr) {
+    return [...arr].reverse(); // permet de garder le tableau de base et d'en retournée un nouveau crée grace au spread opérateur
+}
+// les classes en TypeScript
+class A {
+    constructor() {
+        this.a = 3; // private ne peut etre accédé que a l'interieur de la classe
+    }
+    log() {
+        console.log(this.a);
+    }
+}
+const aInstance = new A();
+console.log(aInstance);
